@@ -44,7 +44,10 @@ def _get_token() -> str:
 
 def _get_city_from_args() -> str:
   try:
-    return sys.argv[1:][1]
+    if "city" in sys.argv[1:][0]:
+      return sys.argv[1:][1]
+    else:
+      raise CityNotSpecified
   except:
     raise CityNotSpecified
 
